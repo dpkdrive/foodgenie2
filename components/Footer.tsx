@@ -14,7 +14,7 @@ const QUICK_LINKS = [
   ['/refund-policy',     'Refund Policy'],
 ]
 
-const BG   = '#1a1a18'
+const BG   = '#091b15'
 const GOLD = 'var(--gold)'
 const INTER = 'Inter, sans-serif'
 
@@ -117,6 +117,7 @@ function Footer() {
               }}
             />
             <button
+              className="hover:bg-white hover:text-[#091b15] active:scale-[0.98] transition-all duration-300"
               style={{
                 background:    'transparent',
                 border:        '1px solid rgba(255,255,255,0.45)',

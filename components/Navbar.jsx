@@ -53,8 +53,7 @@ export default function Navbar({ variant = 'home' }) {
                 href={href}
                 onClick={close}
                 style={TAJ_FONT}
-                className="text-[0.9rem] font-medium text-[var(--gold)] no-underline uppercase transition-colors duration-200 hover:text-[var(--green)]"
-
+                className="text-[0.82rem] font-semibold text-[var(--green)] no-underline uppercase tracking-[0.16em] transition-all duration-300 hover:text-[var(--gold)] relative py-1 after:content-[''] after:absolute after:w-0 after:h-[1.5px] after:bottom-0 after:left-0 after:bg-[var(--gold)] hover:after:w-full after:transition-all after:duration-300"
               >
                 {label}
               </a>
@@ -147,7 +146,7 @@ export default function Navbar({ variant = 'home' }) {
                   letterSpacing: '0.18em',
                   fontSize:      '.9rem',
                 }}
-                className="block py-3 font-semibold text-[var(--gold)] no-underline uppercase transition-colors duration-200 hover:text-[var(--green)]"
+                className="block py-3 font-semibold text-[var(--green)] no-underline uppercase transition-colors duration-300 hover:text-[var(--gold)]"
               >
                 {label}
               </a>
@@ -171,7 +170,7 @@ export default function Navbar({ variant = 'home' }) {
                 letterSpacing: '0.18em',
               borderRadius:  0,
             }}
-            className="inline-flex items-center border border-[var(--gold)] text-[var(--gold)] text-[0.7rem] font-medium uppercase px-9 py-[13px] no-underline hover:bg-[var(--gold)] hover:text-white transition-colors duration-300"
+            className="inline-flex items-center border border-[var(--gold)] text-[var(--gold)] text-[0.7rem] font-medium uppercase px-9 py-[13px] no-underline hover:bg-[var(--gold)] hover:text-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
           >
             Call Now — +91 99580 93268
           </a>

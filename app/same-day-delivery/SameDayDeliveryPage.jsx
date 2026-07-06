@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
 
-const gold  = '#c9a96e'
-const green = '#2d4a28'
+const gold  = 'var(--gold)'
+const green = 'var(--green)'
 
 const TABS = [
   { key: '35min - 60min', label: '35 – 60 Min',   sub: 'Express delivery' },

@@ -111,7 +111,7 @@ function Plan({ diet, setDiet }: { diet: string; setDiet: (d: string) => void })
   const offset = `calc(50% - ${CARD_WIDTH / 2}px - ${active * (CARD_WIDTH + CARD_GAP)}px + ${dragX}px)`
 
   return (
-    <section id="subscription" className="overflow-hidden" style={{ padding: '96px 0', background: '#f0f0f0' }}>
+    <section id="subscription" className="overflow-hidden" style={{ padding: '96px 0', background: 'var(--cream2)' }}>
 
       {/* Heading */}
       <div className="rv text-center mb-16 px-6">
@@ -186,46 +186,12 @@ function Plan({ diet, setDiet }: { diet: string; setDiet: (d: string) => void })
                   outline: p.featured ? '1px solid rgba(201,169,110,0.25)' : 'none',
                 }}
               >
-                {isBespoke ? (
-                  /* ── Bespoke card: only big title + button ── */
-                  <>
-                    <div className="flex-1 flex items-center justify-center">
-                      <h3 style={{
-                        fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif',
-                        fontSize: 'clamp(2rem, 5vw, 3.2rem)',
-                        fontWeight: 400,
-                        lineHeight: 1.2,
-                        letterSpacing: '0.06em',
-                        textTransform: 'uppercase',
-                        color: 'var(--green)',
-                        textAlign: 'center',
-                        margin: 0,
-                      }}>
-                        Bride<br />to Be
-                      </h3>
-                    </div>
-                    <button
-                      onClick={() => setModal({ open: true, plan: p.key, label: p.label })}
-                      className="w-full py-[15px] text-[0.72rem] uppercase tracking-[0.2em] font-medium cursor-pointer border-none"
-                      style={{
-                        background: 'var(--green)',
-                        color: '#fff',
-                        fontFamily: 'var(--font-cinzel), serif',
-                        letterSpacing: '0.2em',
-                      }}
-                    >
-                      {p.btn}
-                    </button>
-                  </>
-                ) : (
-                  /* ── Standard card ── */
-                  <>
                     {/* Most Popular badge */}
                     {p.featured && (
                       <>
                         <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }} />
                         <div className="absolute top-[3px] left-1/2 -translate-x-1/2 text-[0.55rem] font-medium uppercase tracking-[0.22em] px-6 py-[5px]"
-                          style={{ background: 'var(--gold)', color: '#1c1009', fontFamily: 'var(--font-cinzel), serif', letterSpacing: '0.2em' }}>
+                          style={{ background: 'var(--gold)', color: 'var(--text)', fontFamily: 'var(--font-cinzel), serif', letterSpacing: '0.2em' }}>
                           Most Popular
                         </div>
                       </>
@@ -248,12 +214,62 @@ function Plan({ diet, setDiet }: { diet: string; setDiet: (d: string) => void })
 
                     {/* Note */}
                     <span className="text-[0.75rem] uppercase tracking-[0.14em] font-medium mb-6 block"
-                      style={{ color: p.featured ? 'rgba(201,169,110,0.65)' : 'var(--gold)', fontFamily: 'var(--font-jost), sans-serif' }}>
+                      style={{ color: p.featured ? 'rgba(197,163,93,0.75)' : 'var(--gold)', fontFamily: 'var(--font-jost), sans-serif' }}>
                       {p.note}
                     </span>
 
+                    {/* Price and Details */}
+                    <div className="mb-6">
+                      {isCustom ? (
+                        <>
+                          <div className="text-[1.8rem] font-normal tracking-[0.02em] leading-none mb-1.5"
+                            style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
+                            Flexible
+                          </div>
+                          <div className="text-[0.68rem] uppercase tracking-[0.1em] font-medium"
+                            style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
+                            Choose your own dates
+                          </div>
+                        </>
+                      ) : isBespoke ? (
+                        <>
+                          <div className="flex items-baseline gap-1 mb-1.5">
+                            <span className="text-[1.8rem] font-normal tracking-[0.02em] leading-none"
+                              style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
+                              ₹39,200
+                            </span>
+                            <span className="text-[0.72rem] uppercase tracking-[0.04em]"
+                              style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
+                              / 28 Days
+                            </span>
+                          </div>
+                          <div className="text-[0.68rem] uppercase tracking-[0.1em] font-medium"
+                            style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
+                            Premium program
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="flex items-baseline gap-1 mb-1.5">
+                            <span className="text-[1.8rem] font-normal tracking-[0.02em] leading-none"
+                              style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
+                              ₹{perMeal}
+                            </span>
+                            <span className="text-[0.72rem] uppercase tracking-[0.04em]"
+                              style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
+                              / meal
+                            </span>
+                          </div>
+                          <div className="text-[0.72rem]"
+                            style={{ color: p.featured ? 'rgba(255,255,255,0.75)' : 'var(--text-mid)', fontWeight: 500 }}>
+                            Total: ₹{Math.round(totalAmt).toLocaleString('en-IN')} <span className="text-[0.62rem] font-normal opacity-75">(incl. GST)</span>
+                          </div>
+                        </>
+                      )}
+                    </div>
+
                     {/* Divider */}
-                    <span className="block h-px mb-6" style={{ background: p.featured ? 'rgba(201,169,110,0.15)' : 'var(--border)' }} />
+                    <span className="block h-px mb-6" style={{ background: p.featured ? 'rgba(255,255,255,0.15)' : 'var(--border)' }} />
 
                     {/* Features */}
                     <ul className="list-none flex flex-col gap-3 mb-8 flex-1">
@@ -269,20 +285,18 @@ function Plan({ diet, setDiet }: { diet: string; setDiet: (d: string) => void })
                     {/* CTA */}
                     <button
                       onClick={() => setModal({ open: true, plan: p.key, label: p.label })}
-                      className="w-full py-[15px] text-[0.72rem] uppercase tracking-[0.2em] font-medium cursor-pointer border-none"
+                      className="w-full py-[15px] text-[0.72rem] uppercase tracking-[0.2em] font-medium cursor-pointer border-none transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                       style={{
                         background: p.featured
                           ? 'linear-gradient(135deg, var(--gold-light), var(--gold))'
                           : 'var(--green)',
-                        color: p.featured ? '#1c1009' : '#fff',
+                        color: p.featured ? 'var(--text)' : '#fff',
                         fontFamily: 'var(--font-cinzel), serif',
                         letterSpacing: '0.2em',
                       }}
                     >
                       {p.btn}
                     </button>
-                  </>
-                )}
               </div>
             )
           })}

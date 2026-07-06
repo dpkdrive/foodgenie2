@@ -58,7 +58,7 @@ function Hero({ diet }: { diet: string }) {
           <a
             href="#menu"
             style={{ letterSpacing: '0.16em' }}
-            className="text-[0.72rem] font-medium text-[var(--gold)] uppercase no-underline border-b border-[var(--gold)] pb-px transition-colors hover:text-[var(--green)] hover:border-[var(--green)]"
+            className="text-[0.72rem] font-semibold text-[var(--green)] uppercase no-underline border-b-2 border-[var(--green)] pb-px transition-all duration-300 hover:text-[var(--gold)] hover:border-[var(--gold)]"
           >
             View Menu
           </a>

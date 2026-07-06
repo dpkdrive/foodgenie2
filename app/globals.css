@@ -5,29 +5,29 @@
 @tailwind utilities;
 
 :root {
-  --cream:        #faf7f2;
-  --cream2:       #f0eae0;
-  --green:        #1c1009;
-  --green-mid:    #3d352a;
-  --green-light:  #6b5f52;
-  --green-pale:   #ede6db;
-  --gold:         #ad8b3a;
-  --gold-light:   #d9bf8c;
-  --gold-pale:    #f5eddb;
-  --terracotta:   #9b4433;
-  --text:         #1c1009;
-  --text-mid:     #3d352a;
-  --text-muted:   #8c7d6e;
-  --border:       #ddd5c5;
-  --border-dark:  #c4b8a5;
-  --shadow:       rgba(28,16,9,0.07);
-  --shadow-md:    rgba(28,16,9,0.14);
+  --cream:        #faf8f5;
+  --cream2:       #f2ede4;
+  --green:        #113227;
+  --green-mid:    #22483d;
+  --green-light:  #3a695a;
+  --green-pale:   #e6f0ed;
+  --gold:         #c5a35d;
+  --gold-light:   #d8c191;
+  --gold-pale:    #f7f4ec;
+  --terracotta:   #ab4b37;
+  --text:         #0e1f1a;
+  --text-mid:     #2c3b36;
+  --text-muted:   #5b6e68;
+  --border:       #d0dbd6;
+  --border-dark:  #acbeb5;
+  --shadow:       rgba(14,31,26,0.05);
+  --shadow-md:    rgba(14,31,26,0.1);
 }
 /* #ad8b3a */
 
 html { scroll-behavior: smooth; }
 * { box-sizing: border-box; }
-p { color: rgb(69, 68, 63); font-family: 'Inter', sans-serif; font-weight: 300; font-size: 1.1rem; }
+p { color: var(--text-mid); font-family: 'Inter', sans-serif; font-weight: 300; font-size: 1.1rem; }
 h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; }
 
 body {
@@ -112,41 +112,45 @@ body {
 .contact-blob-2 { position:fixed; bottom:-80px; left:-80px; width:400px; height:400px; background:radial-gradient(circle,rgba(201,169,110,0.08) 0%,transparent 70%); pointer-events:none; z-index:0; }
 
 /* Taj-inspired button utilities */
-.btn-taj { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 40px; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; border-radius:0; border:1px solid var(--green); color:var(--green); background:transparent; cursor:pointer; text-decoration:none; transition:background 0.28s ease,color 0.28s ease; }
-.btn-taj:hover { background:var(--green); color:white; }
+.btn-taj { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 40px; font-size:0.72rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; border-radius:0; border:1.5px solid var(--green); color:var(--green); background:transparent; cursor:pointer; text-decoration:none; transition:background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; }
+.btn-taj:hover { background:var(--green); color:#fff; transform:translateY(-2px); box-shadow:0 4px 16px rgba(17,50,39,0.2); }
 .btn-taj-gold { border-color:var(--gold); color:var(--gold); background:transparent; }
-.btn-taj-gold:hover { background:var(--gold); color:white; }
+.btn-taj-gold:hover { background:var(--gold); color:#fff; transform:translateY(-2px); box-shadow:0 4px 16px rgba(197,163,93,0.25); }
 /* "BOOK A STAY" style — solid gold, white text, zero radius */
-.btn-taj-filled { display:inline-flex; align-items:center; justify-content:center; background-color:var(--gold); color:#fff; border:none; border-radius:0; padding:15px 44px; font-size:0.72rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background 0.28s ease; }
+.btn-taj-filled { display:inline-flex; align-items:center; justify-content:center; background-color:var(--gold); color:#fff; border:none; border-radius:0; padding:15px 44px; font-size:0.72rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; }
 
 
-/* Global: no hover effect on any link or button */
-a:hover, button:hover {
-  color: inherit !important;
-  background-color: inherit !important;
-  background: inherit !important;
-  border-color: inherit !important;
-  transform: none !important;
-  opacity: 1 !important;
-  text-decoration: none !important;
-  box-shadow: inherit !important;
+/* Smooth global transitions */
+a, button {
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
+
+/* Prevent nav items from dimming on hover — explicit hover classes control coloring */
+a:not([class]):hover {
+  opacity: 0.82;
+}
+
+/* Same Day Delivery Button override */
 .same-day-btn {
-  background: #ad8b3a !important;
-  border: 1px solid #ad8b3a !important;
+  background: var(--gold) !important;
+  border: 1px solid var(--gold) !important;
+  color: #fff !important;
   text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 .same-day-btn:hover {
-  background: #ad8b3a !important;
-  border-color: #ad8b3a !important;
-  opacity: 1 !important;
+  background: var(--green) !important;
+  border-color: var(--green) !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(17, 50, 39, 0.15);
 }
 
-
-
 .btn-taj-filled:hover {
-  background-color: var(--green)!important;
-  color: #fff!important;
+  background-color: var(--green) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(17, 50, 39, 0.2);
 }
 .space-top {
   margin-top: 4rem;
@@ -180,18 +184,29 @@ a:hover, button:hover {
 }
 
 
-.primary-btn{
+.primary-btn {
   border: 2px solid var(--gold);
   background-color: var(--gold);
-  color: var(--gold-pale);
+  color: #fff;
   padding: 14px 20px;
-
   font-weight: 600;
-  transition: all 0.3s ease;
+  letter-spacing: 0.1em;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.primary-btn:hover{
-  border: 2px solid var(--gold);
-  background-color: var(--text) !important;
-  color: var(--gold-pale) !important;
+.primary-btn:hover {
+  border: 2px solid var(--green) !important;
+  background-color: var(--green) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(17, 50, 39, 0.25);
+}
+
+/* Card hover lift utility */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(17, 50, 39, 0.12);
 }

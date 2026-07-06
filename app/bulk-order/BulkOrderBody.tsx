@@ -3,7 +3,7 @@
 export default function BulkOrderBody({ imageUrl }: { imageUrl: string }) {
   return (
     <div style={{
-      background:     '#000',
+      background:     'var(--green)',
       minHeight:      '100vh',
       display:        'flex',
       flexDirection:  'column',
@@ -57,6 +57,7 @@ export default function BulkOrderBody({ imageUrl }: { imageUrl: string }) {
 
         <a
           href="tel:+919958093268"
+          className="hover:bg-[var(--gold)] hover:border-[var(--gold)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
           style={{
             display:        'inline-flex',
             alignItems:     'center',

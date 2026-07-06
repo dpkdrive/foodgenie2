@@ -14,25 +14,24 @@ function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden  padding-top"
-      style={{ background: 'linear-gradient(to bottom, #000000 0%, #ffffff 100%)' }}
-
+      className="relative overflow-hidden padding-top"
+      style={{ background: 'var(--cream2)' }}
     >
       {/* ── Top heading ─────────────────────────────────────────────── */}
       <div className="text-center px-6 ">
         <div className="flex items-center justify-center gap-3 mb-5">
-          <span className="h-px w-12 flex-shrink-0" style={{ background: 'rgba(201,169,110,0.5)' }} />
+          <span className="h-px w-12 flex-shrink-0" style={{ background: 'rgba(197,163,93,0.5)' }} />
           <h2
             className="font-cinzel text-[clamp(1.8rem,4vw,3.2rem)] font-normal uppercase leading-[1.2] tracking-[0.06em]"
-            style={{ color: '#ffffff', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
+            style={{ color: 'var(--green)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
           >
             Handcrafted, Delectable &amp;<br />Wholesome Food Solution
           </h2>
-          <span className="h-px w-12 flex-shrink-0" style={{ background: 'rgba(201,169,110,0.5)' }} />
+          <span className="h-px w-12 flex-shrink-0" style={{ background: 'rgba(197,163,93,0.5)' }} />
         </div>
         <p
           className="font-playfair text-[clamp(1rem,1.8vw,1.2rem)] font-light italic max-w-[500px] mx-auto leading-[1.8]"
-          style={{ color: 'rgba(201,169,110,0.65)' }}
+          style={{ color: 'var(--gold)' }}
         >
           "Food is the best love language"
         </p>
@@ -55,7 +54,7 @@ function About() {
         {/* Text column */}
         <div
           className="rv px-10 md:px-16 py-16 md:py-20 flex flex-col justify-center"
-          style={{ background: 'rgba(255,255,255,0.97)' }}
+          style={{ background: 'var(--cream)' }}
         >
           {/* Label */}
           <div className="flex items-center gap-3 mb-7">
@@ -127,7 +126,7 @@ function About() {
       {/* ── Bottom CTA ───────────────────────────────────────────────── */}
       <div
         className="text-center py-14 px-6"
-        style={{ background: '#ffffff', borderTop: '1px solid var(--border)' }}
+        style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}
       >
         <p
           className="font-cinzel text-[clamp(1rem,2vw,1.3rem)] font-normal uppercase tracking-[0.1em] mb-6"

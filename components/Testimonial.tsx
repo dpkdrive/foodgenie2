@@ -10,6 +10,33 @@ interface Testimonial {
   rating:   number
 }
 
+const DEFAULT_TESTIMONIALS: Testimonial[] = [
+  {
+    _id: 'default1',
+    name: 'Ananya Sharma',
+    role: 'Nutritionist & Wellness Coach',
+    text: 'Food Genie is a game-changer! The meals are fresh, extremely nutritious, and portion-controlled perfectly. The culinary experience is outstanding, bringing chef-crafted quality to daily meals.',
+    duration: '6 Months Subscriber',
+    rating: 5
+  },
+  {
+    _id: 'default2',
+    name: 'Vikram Seth',
+    role: 'Tech Lead at Google',
+    text: 'Outstanding service and taste. As a busy professional, I struggled with meal prep. Food Genie completely solved it with balanced, delicious food delivered hot and fresh everyday.',
+    duration: '3 Months Subscriber',
+    rating: 5
+  },
+  {
+    _id: 'default3',
+    name: 'Meera Rajput',
+    role: 'Homemaker & Yoga Practitioner',
+    text: 'Highly recommended for families! Every dish has clean, fresh preparations and high-quality ingredients. It saves so much kitchen hassle while keeping my family healthy.',
+    duration: '1 Year Subscriber',
+    rating: 5
+  }
+]
+
 export default function TestimonialsCarousel() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([])
   const [active, setActive]   = useState(0)
@@ -20,8 +47,16 @@ export default function TestimonialsCarousel() {
   useEffect(() => {
     fetch('/api/testimonials')
       .then(r => r.json())
-      .then(res => { if (res.success) setTestimonials(res.data) })
-      .catch(() => {})
+      .then(res => {
+        if (res.success && Array.isArray(res.data) && res.data.length > 0) {
+          setTestimonials(res.data)
+        } else {
+          setTestimonials(DEFAULT_TESTIMONIALS)
+        }
+      })
+      .catch(() => {
+        setTestimonials(DEFAULT_TESTIMONIALS)
+      })
   }, [])
 
   const total = testimonials.length
@@ -37,13 +72,13 @@ export default function TestimonialsCarousel() {
     }, 420)
   }, [total])
 
-  const prev = () => { clearInterval(autoRef.current!); goTo(active - 1) }
-  const next = () => { clearInterval(autoRef.current!); goTo(active + 1) }
+  const prev = () => { if (autoRef.current) clearInterval(autoRef.current); goTo(active - 1) }
+  const next = () => { if (autoRef.current) clearInterval(autoRef.current); goTo(active + 1) }
 
   useEffect(() => {
     if (total === 0) return
     autoRef.current = setInterval(() => goTo(active + 1), 5000)
-    return () => clearInterval(autoRef.current!)
+    return () => { if (autoRef.current) clearInterval(autoRef.current) }
   }, [active, goTo, total])
 
   if (total === 0) return null

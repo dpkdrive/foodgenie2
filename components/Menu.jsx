@@ -12,7 +12,7 @@ const MENU_ITEMS = [
     badge: 'Everyday Nourishment',
     href: '/food-menu/balanced-food',
     bannerKey: 'balancedFood',
-    tags: [''],
+    tags: [],
   },
   {
     num: '02',
@@ -21,7 +21,7 @@ const MENU_ITEMS = [
     badge: 'Fitness Focused',
     href: '/food-menu/low-calorie-high-protein',
     bannerKey: 'lowCalories',
-    tags: [''],
+    tags: [],
   },
   {
     num: '03',
@@ -123,7 +123,7 @@ export default function Menu() {
       images={bannerItem?.images ?? []}
       title={bannerItem?.title ?? ''}
     />
-    <section id="menu" className="overflow-hidden padding-top" style={{ background: '#f0f0f0' }}>
+    <section id="menu" className="overflow-hidden padding-top" style={{ background: 'var(--cream2)' }}>
 
       {/* Heading */}
       <div className="rv text-center mb-16 px-6 ">
