@@ -5,20 +5,20 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 const NAV_LINKS = [
-  ['/#about',        'About Us'],
-  ['/#menu',         'Menu'],
+  ['/#about', 'About Us'],
+  ['/#menu', 'Menu'],
   ['/#subscription', 'Subscribe'],
   ['/#testimonials', 'Reviews'],
-  ['/#faq',          'FAQs'],
-  ['/bulk-order',    'Corporate / Party'],
+  ['/#faq', 'FAQs'],
+  ['/bulk-order', 'Corporate / Party'],
 ]
 
-const TAJ_FONT = { fontFamily: 'Inter, serif', letterSpacing: '0.16em', textTransform:'uppercase' }
+const TAJ_FONT = { fontFamily: 'Inter, serif', letterSpacing: '0.16em', textTransform: 'uppercase' }
 
 export default function Navbar({ variant = 'home' }) {
   const router = useRouter()
   const [stuck, setStuck] = useState(false)
-  const [open, setOpen]   = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setStuck(window.scrollY > 50)
@@ -118,9 +118,9 @@ export default function Navbar({ variant = 'home' }) {
       <div
         className="fixed inset-0 z-[199] flex flex-col bg-white overflow-y-auto"
         style={{
-          opacity:       open ? 1 : 0,
+          opacity: open ? 1 : 0,
           pointerEvents: open ? 'all' : 'none',
-          transition:    'opacity 0.42s cubic-bezier(0.4,0,0.2,1)',
+          transition: 'opacity 0.42s cubic-bezier(0.4,0,0.2,1)',
         }}
       >
         {/* Spacer = navbar height */}
@@ -133,7 +133,7 @@ export default function Navbar({ variant = 'home' }) {
               key={href}
               style={{
                 borderBottom: '1px solid var(--border)',
-                opacity:   open ? 1 : 0,
+                opacity: open ? 1 : 0,
                 transform: open ? 'translateY(0)' : 'translateY(14px)',
                 transition: `opacity 0.5s ease ${i * 60}ms, transform 0.5s ease ${i * 60}ms`,
               }}
@@ -142,9 +142,9 @@ export default function Navbar({ variant = 'home' }) {
                 href={href}
                 onClick={close}
                 style={{
-                  fontFamily:    'Inter, serif',
+                  fontFamily: 'Inter, serif',
                   letterSpacing: '0.18em',
-                  fontSize:      '.9rem',
+                  fontSize: '.9rem',
                 }}
                 className="block py-3 font-semibold text-[var(--green)] no-underline uppercase transition-colors duration-300 hover:text-[var(--gold)]"
               >
@@ -156,26 +156,29 @@ export default function Navbar({ variant = 'home' }) {
 
         {/* Bottom CTA */}
         <div
-          className="px-10 py-8 border-t border-[var(--border)]"
+          className="px-10 py-8 border-t border-[var(--border)] bg-[var(--gold)] "
           style={{
-            opacity:   open ? 1 : 0,
+            opacity: open ? 1 : 0,
             transform: open ? 'translateY(0)' : 'translateY(14px)',
             transition: `opacity 0.5s ease ${NAV_LINKS.length * 60 + 60}ms, transform 0.5s ease ${NAV_LINKS.length * 60 + 60}ms`,
           }}
         >
-          <a
-            href="tel:+919958093268"
-            onClick={close}
-            style={{
+          <div className='flex justify-center '>
+            <a
+              href="tel:+919958093268"
+              onClick={close}
+              style={{
                 letterSpacing: '0.18em',
-              borderRadius:  0,
-            }}
-            className="inline-flex items-center border border-[var(--gold)] text-[var(--gold)] text-[0.7rem] font-medium uppercase px-9 py-[13px] no-underline hover:bg-[var(--gold)] hover:text-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-          >
-            Call Now — +91 99580 93268
-          </a>
+                borderRadius: 0,
+                justifySelf: 'center',
+              }}
+              className="inline-flex items-center border border-white text-white text-[0.9rem] font-medium uppercase px-9 py-[13px] no-underline hover:bg-white hover:text-black hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+            >
+              Call Now — +91 99580 93268
+            </a>
+          </div>
           <p
-            className="text-[0.8rem] mt-4 leading-relaxed"
+            className="text-[0.8rem] mt-4 leading-relaxed text-white text-center"
             style={{ letterSpacing: '0.08em' }}
           >
             Sector 57, Gurugram
