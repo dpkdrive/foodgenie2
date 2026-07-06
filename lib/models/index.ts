@@ -1,0 +1,6 @@
+export { default as Admin }          from './Admin'
+export { default as Settings }       from './Settings'
+export { default as Subscription }   from './Subscription'
+export { default as Testimonial }    from './Testimonial'
+export { default as SameDayProduct } from './SameDayProduct'
+export { default as SameDayOrder }   from './SameDayOrder'
