@@ -50,10 +50,10 @@ export default function HomePage() {
           <TestimonialsCarousel />
 
       {/* ── FAQ ── */}
-      <section id="faq" style={{ background: '#fff' }} className="padding-top padding-bottom">
+      <section id="faq" style={{ background: '#fff' }} className="padding-top padding-bottom px-6">
 
         {/* Heading */}
-        <div className="rv" style={{ textAlign: 'center', marginBottom: 'clamp(48px,7vw,72px)' }}>
+        <div className="rv " style={{ textAlign: 'center', marginBottom: 'clamp(48px,7vw,72px)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 18 }}>
             <span style={{ height: 1, width: 52, background: 'rgba(201,169,110,0.5)', flexShrink: 0 }} />
             <span style={{
