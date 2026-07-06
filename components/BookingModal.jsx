@@ -495,7 +495,7 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
                       </div>
 
                       {/* Diet + Meal Type side by side */}
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 28 }}>
+                      <div style={{  marginBottom: 28 }} className="flex flex-col md:flex-row gap-6">
                         {/* Choose Diet */}
                         <div>
                           <label style={labelStyle}>Choose Diet</label>
@@ -519,7 +519,7 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
                         </div>
 
                         {/* Meal Type */}
-                        <div>
+                        <div className="mt-5 md:mt-0">
                           <label style={labelStyle}>
                             Meal Type
                           </label>

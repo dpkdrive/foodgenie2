@@ -117,8 +117,8 @@ function Plan({ diet, setDiet }: { diet: string; setDiet: (d: string) => void })
       <div className="rv text-center mb-16 px-6">
         <div className="flex items-center justify-center gap-4 mb-5">
           <span className="h-px flex-1 max-w-[80px]" style={{ background: 'rgba(201,169,110,0.45)' }} />
-          <span className="text-[0.72rem] uppercase tracking-[0.26em] font-medium"
-            style={{ color: 'var(--gold)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}>
+          <span className="text-[1rem] uppercase tracking-[0.26em] font-medium"
+            style={{ color: 'var(--gold)', fontFamily: 'var(--font-inter), "Palatino Linotype", serif' }}>
             Meal Plans
           </span>
           <span className="h-px flex-1 max-w-[80px]" style={{ background: 'rgba(201,169,110,0.45)' }} />

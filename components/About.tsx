@@ -62,7 +62,7 @@ function About() {
             <span className="h-px w-8 flex-shrink-0" style={{ background: 'var(--gold)' }} />
             <span
               className="text-[1rem] uppercase tracking-[0.22em] font-medium"
-              style={{ color: 'var(--gold)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
+              style={{ color: 'var(--gold)', fontFamily: 'var(--font-inter), "Palatino Linotype", serif' }}
             >
               About Food Genie
             </span>

@@ -21,7 +21,7 @@ function Hero({ diet }: { diet: string }) {
 
         {/* Badge */}
         <p
-          className="text-[0.85rem] font-medium text-[var(--gold)] uppercase tracking-[0.28em] mb-8 animate-fade-up-1"
+          className="text-[1rem] font-medium text-[var(--gold)] uppercase tracking-[0.28em] mb-8 animate-fade-up-1"
           style={{}}
         >
           Premium Culinary Experience

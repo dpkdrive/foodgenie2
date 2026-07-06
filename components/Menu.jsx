@@ -131,7 +131,7 @@ export default function Menu() {
           <span className="h-px flex-1 max-w-[80px]" style={{ background: 'rgba(201,169,110,0.45)' }} />
           <span
             className="text-[1rem] uppercase tracking-[0.26em] font-medium"
-            style={{ color: 'var(--gold)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
+            style={{ color: 'var(--gold)', fontFamily: 'var(--font-inter), "Palatino Linotype", serif' }}
           >
             What We Serve
           </span>
@@ -197,7 +197,7 @@ export default function Menu() {
                 <div className="mb-6">
                   <span
                     className="text-[4rem] font-normal leading-none"
-                    style={{ color: 'rgba(201,169,110,0.25)', fontFamily: 'var(--font-cinzel), serif' }}
+                    style={{ color: 'rgba(201,169,110,01)', fontFamily: 'var(--font-cinzel), serif' }}
                   >
                     {item.num}
                   </span>
@@ -256,19 +256,10 @@ export default function Menu() {
                     setBannerItem({ images: imgs, title: item.title })
                     setBannerOpen(true)
                   }}
-                  className="inline-flex items-center gap-2 text-[0.72rem] uppercase tracking-[0.2em] font-medium"
-                  style={{
-                    color: 'var(--gold)',
-                    fontFamily: 'var(--font-cinzel), serif',
-                    borderBottom: '1px solid rgba(201,169,110,0.4)',
-                    paddingBottom: '2px',
-                    width: 'fit-content',
-                    background: 'none',
-                    border: 'none',
-                    borderBottom: '1px solid rgba(201,169,110,0.4)',
-                    cursor: 'pointer',
-                    padding: '0 0 2px 0',
-                  }}
+                  className="inline-flex items-center gap-2 text-[.7rem] uppercase tracking-[0.2em] font-medium primary-btn"
+                  // style={{
+
+                  // }}
                 >
                   View Menu Card <span style={{ letterSpacing: 0 }}>→</span>
                 </button>

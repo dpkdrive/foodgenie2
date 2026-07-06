@@ -79,7 +79,7 @@ export default function Navbar({ variant = 'home' }) {
             href="/same-day-delivery"
             onClick={close}
             style={{ fontFamily: 'Cormorant Garamond, serif', textAlign: 'center', lineHeight: 1.2 }}
-            className="md:hidden flex flex-col items-center same-day-btn px-3 py-1 text-[var(--gold)]"
+            className="md:hidden flex flex-col items-center same-day-btn px-3 py-1 text-[var(--gold)] "
           >
             <span style={{ fontSize: '3.2vw', fontWeight: 500, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#fff' }}>Same Day Delivery</span>
             <span style={{ fontSize: '2.4vw', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.75)', marginTop: 1 }}>09:00 AM → 11:00 PM</span>
@@ -143,11 +143,11 @@ export default function Navbar({ variant = 'home' }) {
                 href={href}
                 onClick={close}
                 style={{
-                  fontFamily:    'Cormorant Garamond, serif',
+                  fontFamily:    'Inter, serif',
                   letterSpacing: '0.18em',
-                  fontSize:      '3.438vw',
+                  fontSize:      '.9rem',
                 }}
-                className="block py-5 font-light text-[var(--gold)] no-underline uppercase transition-colors duration-200 hover:text-[var(--green)]"
+                className="block py-3 font-semibold text-[var(--gold)] no-underline uppercase transition-colors duration-200 hover:text-[var(--green)]"
               >
                 {label}
               </a>

@@ -57,8 +57,8 @@ export default function HomePage() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 18 }}>
             <span style={{ height: 1, width: 52, background: 'rgba(201,169,110,0.5)', flexShrink: 0 }} />
             <span style={{
-              fontFamily: 'var(--font-cinzel), serif',
-              fontSize: '0.65rem',
+              fontFamily: 'var(--font-inter), serif',
+              fontSize: '1rem',
               letterSpacing: '0.3em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
