@@ -172,7 +172,7 @@ export default function Navbar({ variant = 'home' }) {
                 borderRadius: 0,
                 justifySelf: 'center',
               }}
-              className="inline-flex items-center border border-white text-white text-[0.9rem] font-medium uppercase px-9 py-[13px] no-underline hover:bg-white hover:text-black hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center border border-white text-white text-[0.8rem] font-medium uppercase px-3 py-[13px] no-underline hover:bg-white hover:text-black hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
               Call Now — +91 99580 93268
             </a>
