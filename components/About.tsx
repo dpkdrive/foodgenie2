@@ -61,7 +61,7 @@ function About() {
           <div className="flex items-center gap-3 mb-7">
             <span className="h-px w-8 flex-shrink-0" style={{ background: 'var(--gold)' }} />
             <span
-              className="text-[0.85rem] uppercase tracking-[0.22em] font-medium"
+              className="text-[1rem] uppercase tracking-[0.22em] font-medium"
               style={{ color: 'var(--gold)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
             >
               About Food Genie
@@ -69,7 +69,7 @@ function About() {
           </div>
 
           {/* Hindi issues list */}
-          <div className="flex flex-wrap gap-x-8 gap-y-3 mb-10">
+          {/* <div className="flex flex-wrap gap-x-8 gap-y-3 mb-10">
             {ISSUES.map(({ pre, highlight, post }, i) => (
               <div
                 key={i}
@@ -94,7 +94,7 @@ function About() {
                 </span>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Body */}
           <p className="leading-[1.9] mb-5 text-[1.1rem]">

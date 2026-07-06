@@ -162,7 +162,7 @@ export default function RefundPage() {
             <Section key={section.id} section={section} index={index} total={sections.length} />
           ))}
         </div>
-
+{/*
         <p style={{ ...P, textAlign: 'center', marginTop: 24, fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)' }}>
           Because of the nature of our business, we do not have a return policy.
         </p>
@@ -170,7 +170,7 @@ export default function RefundPage() {
         <p style={{ textAlign: 'center', fontFamily: 'Inter, sans-serif', fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', marginTop: 12, lineHeight: 1.7 }}>
           Questions about our refund policy?{' '}
           <a href="mailto:feedback@foodgenie.com" style={{ color: 'white', textDecoration: 'none' }}>Contact us</a>
-        </p>
+        </p> */}
       </div>
     </div>
   )

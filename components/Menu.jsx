@@ -130,7 +130,7 @@ export default function Menu() {
         <div className="flex items-center justify-center gap-4 mb-5">
           <span className="h-px flex-1 max-w-[80px]" style={{ background: 'rgba(201,169,110,0.45)' }} />
           <span
-            className="text-[0.72rem] uppercase tracking-[0.26em] font-medium"
+            className="text-[1rem] uppercase tracking-[0.26em] font-medium"
             style={{ color: 'var(--gold)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
           >
             What We Serve
@@ -231,6 +231,7 @@ export default function Menu() {
                 </p>
 
                 {/* Tags */}
+                {item.tags.length > 0 ?
                 <div className="flex flex-wrap gap-2 mb-8">
                   {item.tags.map((tag) => (
                     <span
@@ -245,7 +246,8 @@ export default function Menu() {
                       {tag}
                     </span>
                   ))}
-                </div>
+                  </div>
+                : null}
 
                 {/* CTA */}
                 <button

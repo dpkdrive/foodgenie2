@@ -27,7 +27,7 @@ module.exports = {
         playfair: ['var(--font-cormorant)', 'serif'],
         cinzel:   ['var(--font-cinzel)', '"Palatino Linotype"', 'serif'],
         inter:    ['var(--font-jost)', 'sans-serif'],
-        dm:       ['var(--font-jost)', 'sans-serif'],
+        dm: ['var(--font-jost)', 'sans-serif'],
       },
       keyframes: {
         fadeUp:   { from:{ opacity:'0', transform:'translateY(20px)' }, to:{ opacity:'1', transform:'none' } },

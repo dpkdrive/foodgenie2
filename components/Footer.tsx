@@ -157,14 +157,12 @@ function Footer() {
               support@foodgenie.com
             </a>
           </div>
-        </div>
-
-        {/* ── Call Now ── */}
+          {/* ── Call Now ── */}
         <a
           href="tel:+919958093268"
           style={{
             display:        'block',
-            width:          '80%',
+            maxWidth:          '240px',
             background:     GOLD,
             textAlign:      'center',
             padding:        '16px 24px',
@@ -181,9 +179,12 @@ function Footer() {
         >
           Call Now
         </a>
+        </div>
+
+
 
         {/* ── Customer Support ── */}
-        <div style={{ marginBottom: 40 }}>
+        {/* <div style={{ marginBottom: 40 }}>
           <span style={SECTION_LABEL}>Customer Support</span>
           <a href="mailto:support@foodgenie.com" style={{
             display:        'block',
@@ -204,7 +205,7 @@ function Footer() {
           }}>
             feedback@foodgenie.com
           </a>
-        </div>
+        </div> */}
 
         {/* ── Connect With Us ── */}
         {activeSocials.length > 0 && (
