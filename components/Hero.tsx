@@ -66,12 +66,12 @@ function Hero({ diet }: { diet: string }) {
 
         {/* Stats */}
         <div className="flex items-center justify-center gap-0 mt-14 pt-10 border-t border-[var(--border)] animate-fade-up-5">
-          {[['500+', 'Happy Families'], ['28', 'Days Freshness'], ['3', 'Meals Daily']].map(([n, l], i, arr) => (
+          {[['500+', 'Good food leads to good mood '], ['28', 'It’s all about the taste '], ['3', 'Health and Hygienic']].map(([n, l], i, arr) => (
             <div key={n} className={`${i < arr.length - 1 ? 'pr-10 mr-10 border-r border-[var(--border)]' : ''} text-center`}>
-              <div
+              {/* <div
                 className="font-cinzel text-[2rem] font-normal text-[var(--green)] leading-none"
                 style={{ fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
-              >{n}</div>
+              >{n}</div> */}
               <div
                 className="text-[0.65rem] text-[var(--text-muted)] mt-1.5 uppercase tracking-[0.1em]"
                 style={{}}
@@ -81,7 +81,7 @@ function Hero({ diet }: { diet: string }) {
         </div>
 
       </div>
-    </section>
+    </section >
   )
 }
 

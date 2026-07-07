@@ -95,7 +95,7 @@ function Footer() {
         </div>
 
         {/* ── Subscribe ── */}
-        <div style={{ marginBottom: 40 }}>
+        {/* <div style={{ marginBottom: 40 }}>
           <span style={SECTION_LABEL}>Subscribe for latest updates</span>
           <div style={{ display: 'flex', alignItems: 'stretch', gap: 0 }}>
             <input
@@ -135,7 +135,7 @@ function Footer() {
               Subscribe
             </button>
           </div>
-        </div>
+        </div> */}
 
         {/* ── For Bookings Contact ── */}
         <div style={{ marginBottom: 8 }}>
