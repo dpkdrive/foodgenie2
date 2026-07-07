@@ -38,11 +38,12 @@ export default function Navbar({ variant = 'home' }) {
       {/* ── Navbar bar ──────────────────────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-[200] flex items-center justify-between bg-white border-b border-[var(--border)] transition-all duration-300 ${stuck ? 'nav-stuck' : ''}`}
-        style={{ padding: stuck ? '12px 28px' : '16px 28px' }}
+        style={{ padding: stuck ? '12px 18px' : '16px 28px' }}
       >
         {/* Logo */}
         <Link href="/" onClick={close} className="flex items-center no-underline flex-shrink-0 z-[201]">
-          <Image src="/assets/logo.webp" alt="FoodGenie" width={52} height={52} />
+          {/* <Image src="/assets/logo.webp" alt="FoodGenie" width={52} height={52} /> */}
+          <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: 'var(--gold)', lineHeight: '1', marginRight: '10px', fontWeight: "bold", textTransform: 'uppercase' }}><div>Food</div><div>Genie</div></span>
         </Link>
 
         {/* Desktop nav links */}
@@ -70,7 +71,7 @@ export default function Navbar({ variant = 'home' }) {
             className="hidden md:flex flex-col items-center same-day-btn px-4 py-2"
           >
             <span style={{ fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#fff' }}>Same Day Delivery</span>
-            <span style={{ fontSize: '0.6rem', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.75)', marginTop: 2 }}>09:00 AM → 11:00 PM</span>
+            <span style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.75)', marginTop: 2, fontWeight: '700' }}>09:00 AM → 11:00 PM</span>
           </Link>
 
           {/* Mobile */}
