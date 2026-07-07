@@ -14,16 +14,16 @@ function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden padding-top"
-      style={{ background: 'var(--cream2)' }}
+      className="relative overflow-hidden padding-top bg-gradient-to-b from-black to-Guest Voicesite"
+
     >
       {/* ── Top heading ─────────────────────────────────────────────── */}
-      <div className="text-center px-6 ">
+      <div className="text-center px-6 mb-5 md:mb-12 ">
         <div className="flex items-center justify-center gap-3 mb-5">
           <span className="h-px w-12 flex-shrink-0" style={{ background: 'rgba(197,163,93,0.5)' }} />
           <h2
             className="font-cinzel text-[clamp(1.8rem,4vw,3.2rem)] font-normal uppercase leading-[1.2] tracking-[0.06em]"
-            style={{ color: 'var(--green)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
+            style={{ color: 'white', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}
           >
             Handcrafted, Delectable &amp;<br />Wholesome Food Solution
           </h2>
@@ -124,7 +124,7 @@ function About() {
       </div>
 
       {/* ── Bottom CTA ───────────────────────────────────────────────── */}
-      <div
+      {/* <div
         className="text-center py-14 px-6"
         style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}
       >
@@ -135,7 +135,7 @@ function About() {
           One Stop Solution to All Your Food Related Issues
         </p>
         <a href="#subscription" className="btn-taj-filled">Explore Plans</a>
-      </div>
+      </div> */}
     </section>
   )
 }
