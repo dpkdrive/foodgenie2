@@ -8,40 +8,42 @@ export const PLAN_CONFIG = {
   gstRate: 0.07,
   mealsPerDay: 3,
   prices: {
-    veg:    { 1: 279, 3: 249, 7: 239, 28: 229, custom: 279 },
-    egg:    { 1: 279, 3: 249, 7: 239, 28: 229, custom: 279 },
+    veg: { 1: 279, 3: 249, 7: 239, 28: 229, custom: 279 },
+    egg: { 1: 279, 3: 249, 7: 239, 28: 229, custom: 279 },
     nonveg: { 1: 279, 3: 259, 7: 249, 28: 239, custom: 279 },
   },
 }
 
 const DIET_OPTIONS = [
-  { key: 'veg',    label: 'Vegetarian' },
-  { key: 'egg',    label: 'Eggetarian' },
+  { key: 'veg', label: 'Vegetarian' },
+  { key: 'egg', label: 'Eggetarian' },
   { key: 'nonveg', label: 'Non-Vegetarian' },
 ]
 
 const MEAL_OPTIONS = [
   { key: 'Breakfast', label: 'Breakfast' },
-  { key: 'Lunch',     label: 'Lunch' },
-  { key: 'Dinner',    label: 'Dinner' },
+  { key: 'Lunch', label: 'Lunch' },
+  { key: 'Dinner', label: 'Dinner' },
 ]
 
 const CATEGORY_OPTIONS = [
-  { key: 'Balanced',                   label: 'Balanced',                     sub: null },
-  { key: 'High Protein Low Calories',  label: 'High Protein Low Calories',    sub: null },
-  { key: 'Bespoke',                    label: 'Bespoke',                      sub: [
-    'Athletes',
-    'Diabetes',
-    'Arthritis',
-    'Vegan',
-    'Lacto Intolerance',
-    'Gluten-free',
-  ]},
+  { key: 'Balanced', label: 'Balanced', sub: null },
+  { key: 'High Protein Low Calories', label: 'High Protein Low Calories', sub: null },
+  {
+    key: 'Bespoke', label: 'Bespoke', sub: [
+      'Athletes',
+      'Diabetes',
+      'Arthritis',
+      'Vegan',
+      'Lacto Intolerance',
+      'Gluten-free',
+    ]
+  },
 ]
 
 const DAY_OPTIONS = [
-  { value: '3',  label: '3 Days' },
-  { value: '7',  label: '7 Days' },
+  { value: '3', label: '3 Days' },
+  { value: '7', label: '7 Days' },
   { value: '28', label: '28 Days' },
   { value: 'custom', label: 'Custom' },
 ]
@@ -54,40 +56,40 @@ const BESPOKE_DAY_OPTIONS = [
 const BESPOKE_PRICES = { 28: 39200, 84: 113408 }
 const BESPOKE_MEALS = 'Breakfast · Lunch · Snacks · Dinner'
 
-const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December']
-const DAYS_OF_WEEK = ['Su','Mo','Tu','We','Th','Fr','Sa']
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const DAYS_OF_WEEK = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
 
 function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN') }
-function todayMidnight() { const d = new Date(); d.setHours(0,0,0,0); return d }
+function todayMidnight() { const d = new Date(); d.setHours(0, 0, 0, 0); return d }
 function sameDay(a, b) { return a && b && a.toDateString() === b.toDateString() }
 function isBetween(d, a, b) { return a && b && d > a && d < b }
 function addDays(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); return r }
 function formatDate(d) { if (!d) return '—'; return d.getDate() + ' ' + MONTHS[d.getMonth()].slice(0, 3) + ' ' + d.getFullYear() }
 
 function resolveTier(days) {
-  if (days < 3)  return 1   // 1–2 days
+  if (days < 3) return 1   // 1–2 days
   if (days <= 3) return 3   // 3 days
   if (days <= 7) return 7   // 4–7 days
   return 28                 // 8+ days
 }
 
 function calcAmounts(diet, days, apiPrices) {
-  const prices  = apiPrices ?? PLAN_CONFIG.prices
-  const tier    = resolveTier(days)
-  const perDay  = prices[diet]?.[tier] ?? PLAN_CONFIG.prices[diet]?.[tier]
+  const prices = apiPrices ?? PLAN_CONFIG.prices
+  const tier = resolveTier(days)
+  const perDay = prices[diet]?.[tier] ?? PLAN_CONFIG.prices[diet]?.[tier]
   if (!perDay || !days) return { perMeal: 0, base: 0, gst: 0, total: 0 }
   const base = perDay * PLAN_CONFIG.mealsPerDay * days
-  const gst  = Math.round(base * PLAN_CONFIG.gstRate)
+  const gst = Math.round(base * PLAN_CONFIG.gstRate)
   return { perMeal: perDay, base, gst, total: base + gst }
 }
 
 const detailsSchema = Yup.object({
-  name:    Yup.string().min(2, 'Name too short').required('Name is required'),
-  phone:   Yup.string().matches(/^[6-9]\d{9}$/, 'Enter valid 10-digit mobile').required('Phone is required'),
-  email:   Yup.string().email('Invalid email').required('Email is required'),
+  name: Yup.string().min(2, 'Name too short').required('Name is required'),
+  phone: Yup.string().matches(/^[6-9]\d{9}$/, 'Enter valid 10-digit mobile').required('Phone is required'),
+  email: Yup.string().email('Invalid email').required('Email is required'),
   address: Yup.string().min(5, 'Address too short').required('Address is required'),
   pincode: Yup.string().matches(/^\d{6}$/, 'Enter valid 6-digit pincode').required('Pincode is required'),
-  notes:   Yup.string().nullable(),
+  notes: Yup.string().nullable(),
 })
 
 const STEP_LABELS = ['Plan', 'Details', 'Confirm']
@@ -170,21 +172,21 @@ function Calendar({ startDate, endDate, calView, setCalView, onDateClick }) {
 
 export default function BookingModal({ isOpen, onClose, planKey, planLabel, currentDiet, apiPrices }) {
   const isBespoke = planKey === 'bespoke'
-  const isFixed   = !isBespoke && planKey !== 'custom'  // 3, 7, 28 days
+  const isFixed = !isBespoke && planKey !== 'custom'  // 3, 7, 28 days
 
-  const [step, setStep]             = useState(0)
-  const [diet, setDiet]             = useState(currentDiet || 'veg')
-  const [mealType, setMealType]     = useState('Lunch')
-  const [category, setCategory]     = useState(isBespoke ? 'Bespoke' : '')
+  const [step, setStep] = useState(0)
+  const [diet, setDiet] = useState(currentDiet || 'veg')
+  const [mealType, setMealType] = useState('Lunch')
+  const [category, setCategory] = useState(isBespoke ? 'Bespoke' : '')
   const [bespokeType, setBespokeType] = useState(isBespoke ? 'Bride to be' : '')
   const [selectedDayOpt, setSelectedDayOpt] = useState(isBespoke ? '28' : planKey !== 'custom' ? (planKey || '7') : 'custom')
-  const [days, setDays]             = useState(isBespoke ? 28 : planKey !== 'custom' ? (Number(planKey) || 7) : 0)
-  const [calView, setCalView]       = useState(new Date())
-  const [startDate, setStartDate]   = useState(null)
-  const [endDate, setEndDate]       = useState(null)
-  const [showSuccess,    setShowSuccess]    = useState(false)
-  const [paying,         setPaying]         = useState(false)
-  const [payError,       setPayError]       = useState('')
+  const [days, setDays] = useState(isBespoke ? 28 : planKey !== 'custom' ? (Number(planKey) || 7) : 0)
+  const [calView, setCalView] = useState(new Date())
+  const [startDate, setStartDate] = useState(null)
+  const [endDate, setEndDate] = useState(null)
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [paying, setPaying] = useState(false)
+  const [payError, setPayError] = useState('')
   const [deliveryResult, setDeliveryResult] = useState(null)  // { charge, distanceKm, serviceable }
 
   useEffect(() => {
@@ -241,15 +243,15 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
   const canProceed = isBespoke
     ? days > 0
     : (selectedDayOpt !== 'custom' ? days > 0 : (startDate && endDate))
-        && !!category
-        && (category !== 'Bespoke' || !!bespokeType)
+    && !!category
+    && (category !== 'Bespoke' || !!bespokeType)
 
   const { perMeal, base, gst, total } = isBespoke
     ? (() => {
-        const base = BESPOKE_PRICES[days] ?? 39200
-        const gst  = Math.round(base * PLAN_CONFIG.gstRate)
-        return { perMeal: 0, base, gst, total: base + gst }
-      })()
+      const base = BESPOKE_PRICES[days] ?? 39200
+      const gst = Math.round(base * PLAN_CONFIG.gstRate)
+      return { perMeal: 0, base, gst, total: base + gst }
+    })()
     : calcAmounts(diet, days, apiPrices)
 
   const formik = useFormik({
@@ -272,24 +274,24 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
       }
 
       const res = await fetch('/api/payment/initiate', {
-        method:  'POST',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           customer: {
-            name:    formik.values.name,
-            phone:   formik.values.phone,
-            email:   formik.values.email || '',
+            name: formik.values.name,
+            phone: formik.values.phone,
+            email: formik.values.email || '',
             address: `${formik.values.address}, ${formik.values.pincode}`,
           },
-          plan:           planLabel,
-          planType:       isBespoke ? 'Bespoke' : category === 'Bespoke' ? 'Bespoke' : selectedDayOpt !== 'custom' ? 'Fixed' : 'Customized',
-          category:       effectiveCategory,
-          meals:          isBespoke ? BESPOKE_MEALS : mealType,
-          startDate:      sDate?.toISOString(),
-          endDate:        eDate?.toISOString(),
-          amount:         Math.round(total + deliveryCharge),
+          plan: planLabel,
+          planType: isBespoke ? 'Bespoke' : category === 'Bespoke' ? 'Bespoke' : selectedDayOpt !== 'custom' ? 'Fixed' : 'Customized',
+          category: effectiveCategory,
+          meals: isBespoke ? BESPOKE_MEALS : mealType,
+          startDate: sDate?.toISOString(),
+          endDate: eDate?.toISOString(),
+          amount: Math.round(total + deliveryCharge),
           deliveryCharge: deliveryCharge,
-          notes:          formik.values.notes || '',
+          notes: formik.values.notes || '',
         }),
       })
       const data = await res.json()
@@ -311,9 +313,9 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
     color: 'var(--green)', background: '#faf9f7', outline: 'none',
   }
   const labelStyle = {
-    display: 'block', fontSize: '0.65rem', textTransform: 'uppercase',
+    display: 'block', fontSize: '0.8rem', textTransform: 'uppercase',
     letterSpacing: '0.18em', fontFamily: 'var(--font-cinzel), serif',
-    color: 'var(--gold)', marginBottom: 6,
+    color: 'var(--gold)', marginBottom: 6, fontWeight: "700"
   }
 
   return (
@@ -344,8 +346,8 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
                 <div className="flex items-baseline gap-3">
                   <div className="text-[1.1rem] font-normal uppercase tracking-[0.06em]" style={{ color: 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>{STEP_LABELS[step]}</div>
                   {!isBespoke && perMeal > 0 && (
-                    <div style={{ fontFamily: 'var(--font-cinzel), serif', fontSize: '0.72rem', color: 'var(--gold)', letterSpacing: '0.06em' }}>
-                      {fmt(perMeal)}<span style={{ fontSize: '0.58rem', color: 'var(--text-muted)', marginLeft: 3 }}>/ meal per day</span>
+                    <div style={{ fontFamily: 'var(--font-cinzel), serif', fontSize: '0.72rem', color: 'var(--gold)', letterSpacing: '0.06em', fontWeight: '700' }}>
+                      {fmt(perMeal)}<span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginLeft: 3 }}>/ meal per day</span>
                     </div>
                   )}
                 </div>
@@ -358,8 +360,8 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
               {STEP_LABELS.map((lbl, i) => (
                 <div key={i} className="flex-1 flex flex-col gap-1">
                   <div className="h-[2px]" style={{ background: i <= step ? 'var(--gold)' : 'var(--border)' }} />
-                  <span className="text-[0.58rem] uppercase tracking-[0.14em]"
-                    style={{ color: i <= step ? 'var(--gold)' : 'var(--text-muted)', fontFamily: 'var(--font-cinzel), serif' }}>{lbl}</span>
+                  <span className="text-[0.68rem] uppercase tracking-[0.14em]"
+                    style={{ color: i <= step ? 'var(--gold)' : 'var(--text-muted)', fontFamily: 'var(--font-cinzel), serif', fontWeight: '700' }}>{lbl}</span>
                 </div>
               ))}
             </div>
@@ -495,7 +497,7 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
                       </div>
 
                       {/* Diet + Meal Type side by side */}
-                      <div style={{  marginBottom: 28 }} className="flex flex-col md:flex-row gap-6">
+                      <div style={{ marginBottom: 28 }} className="flex flex-col md:flex-row gap-6">
                         {/* Choose Diet */}
                         <div>
                           <label style={labelStyle}>Choose Diet</label>
@@ -625,9 +627,9 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
 
                   <div className="flex flex-col gap-5">
                     {[
-                      { name: 'name',  label: 'Full Name',     placeholder: 'Your full name',        type: 'text' },
-                      { name: 'phone', label: 'Phone Number',  placeholder: '10-digit mobile number', type: 'tel' },
-                      { name: 'email', label: 'Email Address', placeholder: 'your@email.com',         type: 'email' },
+                      { name: 'name', label: 'Full Name', placeholder: 'Your full name', type: 'text' },
+                      { name: 'phone', label: 'Phone Number', placeholder: '10-digit mobile number', type: 'tel' },
+                      { name: 'email', label: 'Email Address', placeholder: 'your@email.com', type: 'email' },
                     ].map(({ name, label, placeholder, type, optional }) => (
                       <div key={name}>
                         <label style={labelStyle}>{label}{optional && <span style={{ opacity: 0.5 }}> (optional)</span>}</label>
