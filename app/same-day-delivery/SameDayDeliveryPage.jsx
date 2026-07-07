@@ -206,7 +206,7 @@ export default function SameDayDeliveryPage() {
 
         {/* Hero */}
         <div style={{ background: green, padding: '40px 24px', textAlign: 'center' }}>
-          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '0.65rem', letterSpacing: '0.28em', color: gold, textTransform: 'uppercase', margin: '0 0 10px' }}>FoodGenie</p>
+          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '0.85rem', letterSpacing: '0.28em', color: gold, textTransform: 'uppercase', margin: '0 0 10px', fontWeight: "700" }}>FoodGenie</p>
           <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', letterSpacing: '0.14em', color: '#fff', margin: '0 0 10px', textTransform: 'uppercase', fontWeight: 400 }}>Same Day Delivery</h1>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', margin: 0 }}>Fresh meals delivered to your door today</p>
         </div>

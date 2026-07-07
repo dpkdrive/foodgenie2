@@ -170,7 +170,7 @@ export default function TestimonialsCarousel() {
           fontFamily: 'var(--font-cormorant), Georgia, serif',
           fontSize: 'clamp(1.1rem,2.4vw,1.5rem)',
           fontStyle: 'italic',
-          fontWeight: 300,
+          fontWeight: 500,
           color: 'rgba(40,35,25,0.75)',
           lineHeight: 1.85,
           letterSpacing: '0.02em',
@@ -202,7 +202,7 @@ export default function TestimonialsCarousel() {
             width: 48,
             height: 48,
             borderRadius: '50%',
-            border: '1px solid rgba(201,169,110,0.5)',
+            border: '1px solid rgba(201,169,110,1)',
             background: 'rgba(201,169,110,0.12)',
             display: 'flex',
             alignItems: 'center',
@@ -210,7 +210,8 @@ export default function TestimonialsCarousel() {
             fontFamily: 'var(--font-cinzel), serif',
             fontSize: '1.1rem',
             color: 'var(--gold)',
-            letterSpacing: '0.08em',
+            fontWeight: '700',
+            // letterSpacing: '0.08em',
           }}>
             {t.name.charAt(0).toUpperCase()}
           </div>
@@ -223,6 +224,7 @@ export default function TestimonialsCarousel() {
               textTransform: 'uppercase',
               color: 'var(--green)',
               marginBottom: 5,
+              fontWeight: '700',
             }}>
               {t.name}
             </p>
@@ -232,6 +234,7 @@ export default function TestimonialsCarousel() {
               fontStyle: 'italic',
               letterSpacing: '0.06em',
               color: 'rgba(40,35,25,0.5)',
+              fontWeight: '700',
             }}>
               {t.role}
             </p>
@@ -242,12 +245,13 @@ export default function TestimonialsCarousel() {
               marginTop: 4,
               display: 'inline-block',
               padding: '4px 14px',
-              border: '1px solid rgba(201,169,110,0.35)',
+              border: '1px solid rgba(201,169,110,0.95)',
               fontFamily: 'var(--font-jost), sans-serif',
               fontSize: '0.62rem',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: 'var(--gold)',
+              fontWeight: '700',
             }}>
               {t.duration}
             </span>

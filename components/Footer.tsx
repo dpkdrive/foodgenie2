@@ -85,9 +85,10 @@ function Footer() {
           <span style={{
             fontFamily: 'var(--font-cinzel), serif',
             fontSize: '1.3rem',
-            fontWeight: 300,
+            fontWeight: "700",
             letterSpacing: '0.14em',
             color: '#fff',
+
           }}>
             <span style={{ color: GOLD }}>FOOD GENIE</span>
           </span>

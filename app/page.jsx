@@ -12,10 +12,10 @@ import MealSchedule from '../components/MealSchedule'
 
 
 const FAQS = [
-  { q:'Why FoodGenie?', a:<ul className="list-none"><li className="py-1 pl-[18px] relative before:content-['•'] before:absolute before:left-0 before:text-[var(--green)]">Experienced and passionate chefs dish out a repertoire of cuisines, taking your culinary experience to another level.</li><li className="py-1 pl-[18px] relative before:content-['•'] before:absolute before:left-0 before:text-[var(--green)]">Home style, handcrafted, nutritious offerings with balanced flavours are designed to delight and satisfy.</li><li className="py-1 pl-[18px] relative before:content-['•'] before:absolute before:left-0 before:text-[var(--green)]">Fresh preparations daily with qualitative ingredients.</li></ul>, open:true },
-  { q:'Who is the competitor of FoodGenie?', a:'We believe in collaboration, shared success, and collective growth over competition and a scarcity mindset.' },
-  { q:'Can I customise my meal plan?', a:'Absolutely! FoodGenie offers Veg, Non-Veg, and Eggetarian options across all plans. Our team works with you to accommodate dietary preferences, allergies, and taste preferences. Weekly and monthly subscribers get dedicated menu customisation support.' },
-  { q:'Do you cater for events and occasions?', a:'Yes! FoodGenie is a premium food provider for Birthdays, Anniversaries, Promotions, Family & Friends reunions, Baby Showers, and all joyful festivities. Contact us to craft your bespoke culinary experience.' },
+  { q: 'Why FoodGenie?', a: <ul className="list-none"><li className="py-1 pl-[18px] relative before:content-['•'] before:absolute before:left-0 before:text-[var(--green)]">Experienced and passionate chefs dish out a repertoire of cuisines, taking your culinary experience to another level.</li><li className="py-1 pl-[18px] relative before:content-['•'] before:absolute before:left-0 before:text-[var(--green)]">Home style, handcrafted, nutritious offerings with balanced flavours are designed to delight and satisfy.</li><li className="py-1 pl-[18px] relative before:content-['•'] before:absolute before:left-0 before:text-[var(--green)]">Fresh preparations daily with qualitative ingredients.</li></ul>, open: true },
+  { q: 'Who is the competitor of FoodGenie?', a: 'We believe in collaboration, shared success, and collective growth over competition and a scarcity mindset.' },
+  { q: 'Can I customise my meal plan?', a: 'Absolutely! FoodGenie offers Veg, Non-Veg, and Eggetarian options across all plans. Our team works with you to accommodate dietary preferences, allergies, and taste preferences. Weekly and monthly subscribers get dedicated menu customisation support.' },
+  { q: 'Do you cater for events and occasions?', a: 'Yes! FoodGenie is a premium food provider for Birthdays, Anniversaries, Promotions, Family & Friends reunions, Baby Showers, and all joyful festivities. Contact us to craft your bespoke culinary experience.' },
 ]
 
 export default function HomePage() {
@@ -31,23 +31,23 @@ export default function HomePage() {
       <ScrollReveal />
 
       {/* ── HERO ── */}
-      <Hero diet={diet}/>
+      <Hero diet={diet} />
 
 
       {/* ── ABOUT ── */}
-        <About />
+      <About />
 
       {/* ── MENU ── */}
-     <Menu />
+      <Menu />
 
       {/* ── SUBSCRIPTION ── */}
-    <Plan diet={diet} setDiet={setDiet}/>
+      <Plan diet={diet} setDiet={setDiet} />
 
       {/* ── MEAL SCHEDULE ── */}
       {/* <MealSchedule /> */}
 
       {/* ── TESTIMONIALS ── */}
-          <TestimonialsCarousel />
+      <TestimonialsCarousel />
 
       {/* ── FAQ ── */}
       <section id="faq" style={{ background: '#fff' }} className="padding-top padding-bottom px-6">
@@ -100,6 +100,7 @@ export default function HomePage() {
                   border: 'none',
                   cursor: 'pointer',
                   textAlign: 'left',
+                  fontWeight: "700",
                 }}
               >
                 <span style={{
