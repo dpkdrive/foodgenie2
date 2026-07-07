@@ -124,7 +124,7 @@ function About() {
       </div>
 
       {/* ── Bottom CTA ───────────────────────────────────────────────── */}
-      {/* <div
+      <div
         className="text-center py-14 px-6"
         style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}
       >
@@ -135,7 +135,7 @@ function About() {
           One Stop Solution to All Your Food Related Issues
         </p>
         <a href="#subscription" className="btn-taj-filled">Explore Plans</a>
-      </div> */}
+      </div>
     </section>
   )
 }

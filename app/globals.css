@@ -643,15 +643,36 @@ a:not([class]):hover {
   opacity: 0.82;
 }
 
-/* Same Day Delivery Button override */
-a.same-day-btn {
-  /* background: var(--gold) !important; */
-  /* border: 1px solid var(--green) !important; */
-  color: var(--green) !important;
-  text-decoration: none !important;
+@keyframes same-day-btn-animation {
+  0% {
+    background: var(--green);
+  }
 
+  50% {
+    background: var(--gold);
+  }
+
+  100% {
+    background: var(--green);
+  }
+}
+
+/* Same Day Delivery Button override */
+.same-day-btn {
+  background: var(--green) !important;
+  border: 1px solid var(--green) !important;
+  color: #fff !important;
+  text-decoration: none !important;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
+
+/* @media screen and (max-width:"768px") {
+  .same-day-btn {
+    animation: same-day-btn-animation 2s infinite !important;
+    transition-delay: 3s !important;
+
+  }
+} */
 
 .same-day-btn:hover {
   background: var(--green) !important;

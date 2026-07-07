@@ -71,7 +71,7 @@ export default function Navbar({ variant = 'home' }) {
             className="hidden md:flex flex-col items-center same-day-btn px-4 py-2"
           >
             <span style={{ fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#fff' }}>Same Day Delivery</span>
-            <span style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.75)', marginTop: 2, fontWeight: '700' }}>09:00 AM → 11:00 PM</span>
+            <span style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.75)', marginTop: 2, fontWeight: '700', fontFamily: 'inter' }}>09:00 AM → 11:00 PM</span>
           </Link>
 
           {/* Mobile */}
@@ -81,8 +81,8 @@ export default function Navbar({ variant = 'home' }) {
             style={{ fontFamily: 'Cormorant Garamond, serif', textAlign: 'center', lineHeight: 1.2 }}
             className="md:hidden flex flex-col items-center same-day-btn px-3 py-1 text-[var(--gold)] "
           >
-            <span style={{ fontSize: '3.2vw', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textShadow: "1px 1px 1px #c7c7c7ff" }}>Same Day Delivery</span>
-            <span style={{ fontSize: '.8rem', letterSpacing: '0.08em', marginTop: 1, fontWeight: '700' }}>09:00 AM → 11:00 PM</span>
+            <span style={{ fontSize: '3.2vw', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', fontFamily: 'inter' }}>Same Day Delivery</span>
+            <span style={{ fontSize: '.7rem', letterSpacing: '0.08em', marginTop: 1, fontWeight: '700', fontFamily: 'inter' }}>09:00 AM → 11:00 PM</span>
           </Link>
 
           {/* Hamburger — mobile only */}

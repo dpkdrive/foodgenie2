@@ -6,8 +6,8 @@ import BookingModal from '../components/BookingModal'
 export const PLAN_CONFIG = {
   gstRate: 0.05,
   prices: {
-    veg:    { 3: 249, 7: 239, 28: 229 },
-    egg:    { 3: 249, 7: 239, 28: 229 },
+    veg: { 3: 249, 7: 239, 28: 229 },
+    egg: { 3: 249, 7: 239, 28: 229 },
     nonveg: { 3: 259, 7: 249, 28: 239 },
   },
   mealsPerDay: 3,
@@ -29,7 +29,7 @@ function Plan({ diet, setDiet }: { diet: string; setDiet: (d: string) => void })
     fetch('/api/plans')
       .then(r => r.json())
       .then(data => { if (data?.prices) setApiPrices(data.prices) })
-      .catch(() => {})
+      .catch(() => { })
   }, [])
 
   const activePrices = apiPrices ?? PLAN_CONFIG.prices
@@ -159,8 +159,8 @@ function Plan({ diet, setDiet }: { diet: string; setDiet: (d: string) => void })
           }}
         >
           {plans.map((p, i) => {
-            const isActive  = i === active
-            const isCustom  = p.key === 'custom'
+            const isActive = i === active
+            const isCustom = p.key === 'custom'
             const isBespoke = p.key === 'bespoke'
             const { total: totalAmt, perMeal } = (isCustom || isBespoke) ? { total: 0, perMeal: 0 } : getTotal(diet, p.days)
 
@@ -186,117 +186,116 @@ function Plan({ diet, setDiet }: { diet: string; setDiet: (d: string) => void })
                   outline: p.featured ? '1px solid rgba(201,169,110,0.25)' : 'none',
                 }}
               >
-                    {/* Most Popular badge */}
-                    {p.featured && (
-                      <>
-                        <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }} />
-                        <div className="absolute top-[3px] left-1/2 -translate-x-1/2 text-[0.55rem] font-medium uppercase tracking-[0.22em] px-6 py-[5px]"
-                          style={{ background: 'var(--gold)', color: 'var(--text)', fontFamily: 'var(--font-cinzel), serif', letterSpacing: '0.2em' }}>
-                          Most Popular
-                        </div>
-                      </>
-                    )}
-
-                    {/* Duration label */}
-                    <span className="text-[0.72rem] uppercase tracking-[0.26em] font-medium mb-3 block"
-                      style={{ color: 'var(--gold)', fontFamily: 'var(--font-cinzel), serif' }}>
-                      {p.dur}
-                    </span>
-
-                    {/* Gold bar */}
-                    <span className="block w-8 h-px mb-5" style={{ background: 'var(--gold)', opacity: p.featured ? 0.7 : 1 }} />
-
-                    {/* Title */}
-                    <h3 className="text-[clamp(1.2rem,2vw,1.5rem)] font-normal uppercase tracking-[0.06em] mb-2"
-                      style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}>
-                      {p.label}
-                    </h3>
-
-                    {/* Note */}
-                    <span className="text-[0.75rem] uppercase tracking-[0.14em] font-medium mb-6 block"
-                      style={{ color: p.featured ? 'rgba(197,163,93,0.75)' : 'var(--gold)', fontFamily: 'var(--font-jost), sans-serif' }}>
-                      {p.note}
-                    </span>
-
-                    {/* Price and Details */}
-                    <div className="mb-6">
-                      {isCustom ? (
-                        <>
-                          <div className="text-[1.8rem] font-normal tracking-[0.02em] leading-none mb-1.5"
-                            style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
-                            Flexible
-                          </div>
-                          <div className="text-[0.68rem] uppercase tracking-[0.1em] font-medium"
-                            style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
-                            Choose your own dates
-                          </div>
-                        </>
-                      ) : isBespoke ? (
-                        <>
-                          <div className="flex items-baseline gap-1 mb-1.5">
-                            <span className="text-[1.8rem] font-normal tracking-[0.02em] leading-none"
-                              style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
-                              ₹39,200
-                            </span>
-                            <span className="text-[0.72rem] uppercase tracking-[0.04em]"
-                              style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
-                              / 28 Days
-                            </span>
-                          </div>
-                          <div className="text-[0.68rem] uppercase tracking-[0.1em] font-medium"
-                            style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
-                            Premium program
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="flex items-baseline gap-1 mb-1.5">
-                            <span className="text-[1.8rem] font-normal tracking-[0.02em] leading-none"
-                              style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
-                              ₹{perMeal}
-                            </span>
-                            <span className="text-[0.72rem] uppercase tracking-[0.04em]"
-                              style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
-                              / meal
-                            </span>
-                          </div>
-                          <div className="text-[0.72rem]"
-                            style={{ color: p.featured ? 'rgba(255,255,255,0.75)' : 'var(--text-mid)', fontWeight: 500 }}>
-                            Total: ₹{Math.round(totalAmt).toLocaleString('en-IN')} <span className="text-[0.62rem] font-normal opacity-75">(incl. GST)</span>
-                          </div>
-                        </>
-                      )}
+                {/* Most Popular badge */}
+                {p.featured && (
+                  <>
+                    <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }} />
+                    <div className="absolute top-[3px] left-1/2 -translate-x-1/2 text-[0.55rem] font-medium uppercase tracking-[0.22em] px-6 py-[5px]"
+                      style={{ background: 'var(--gold)', color: 'var(--text)', fontFamily: 'var(--font-cinzel), serif', letterSpacing: '0.2em' }}>
+                      Most Popular
                     </div>
+                  </>
+                )}
 
-                    {/* Divider */}
-                    <span className="block h-px mb-6" style={{ background: p.featured ? 'rgba(255,255,255,0.15)' : 'var(--border)' }} />
+                {/* Duration label */}
+                <span className="text-[0.72rem] uppercase tracking-[0.26em] font-medium mb-3 block"
+                  style={{ color: 'var(--gold)', fontFamily: 'var(--font-cinzel), serif' }}>
+                  {p.dur}
+                </span>
 
-                    {/* Features */}
-                    <ul className="list-none flex flex-col gap-3 mb-8 flex-1">
-                      {p.feats.map(f => (
-                        <li key={f} className="flex items-center gap-3 text-[0.88rem]"
-                          style={{ color: p.featured ? 'rgba(255,255,255,0.75)' : 'rgb(90,85,78)' }}>
-                          <span className="flex-shrink-0 text-[0.65rem]" style={{ color: 'var(--gold)' }}>✦</span>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
+                {/* Gold bar */}
+                <span className="block w-8 h-px mb-5" style={{ background: 'var(--gold)', opacity: p.featured ? 0.7 : 1 }} />
 
-                    {/* CTA */}
-                    <button
-                      onClick={() => setModal({ open: true, plan: p.key, label: p.label })}
-                      className="w-full py-[15px] text-[0.72rem] uppercase tracking-[0.2em] font-medium cursor-pointer border-none transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                      style={{
-                        background: p.featured
-                          ? 'linear-gradient(135deg, var(--gold-light), var(--gold))'
-                          : 'var(--green)',
-                        color: p.featured ? 'var(--text)' : '#fff',
-                        fontFamily: 'var(--font-cinzel), serif',
-                        letterSpacing: '0.2em',
-                      }}
-                    >
-                      {p.btn}
-                    </button>
+                {/* Title */}
+                <h3 className="text-[clamp(1.2rem,2vw,1.5rem)] font-normal uppercase tracking-[0.06em] mb-2"
+                  style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), "Palatino Linotype", serif' }}>
+                  {p.label}
+                </h3>
+
+                {/* Note */}
+                <span className="text-[0.75rem] uppercase tracking-[0.14em] font-medium mb-6 block"
+                  style={{ color: p.featured ? 'rgba(197,163,93,0.75)' : 'var(--gold)', fontFamily: 'var(--font-jost), sans-serif' }}>
+                  {p.note}
+                </span>
+
+                {/* Price and Details */}
+                <div className="mb-6">
+                  {isCustom ? (
+                    <>
+                      <div className="text-[1.8rem] font-normal tracking-[0.02em] leading-none mb-1.5"
+                        style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
+                        Flexible
+                      </div>
+                      <div className="text-[0.68rem] uppercase tracking-[0.1em] font-medium"
+                        style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
+                        Choose your own dates
+                      </div>
+                    </>
+                  ) : isBespoke ? (
+                    <>
+                      <div className="flex items-baseline gap-1 mb-1.5">
+                        <span className="text-[1.8rem] font-normal tracking-[0.02em] leading-none"
+                          style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
+                          {/* ₹39,200 */}
+                        </span>
+                        <span className="text-[0.72rem] uppercase tracking-[0.04em]"
+                          style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
+                          {/* / 28 Days */}
+                        </span>
+                      </div>
+                      <div className="text-[0.68rem] uppercase tracking-[0.1em] font-medium"
+                        style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
+                        {/* Premium program */}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* <div className="flex items-baseline gap-1 mb-1.5">
+                        <span className="text-[1.8rem] font-normal tracking-[0.02em] leading-none"
+                          style={{ color: p.featured ? '#fff' : 'var(--green)', fontFamily: 'var(--font-cinzel), serif' }}>
+                          ₹{perMeal}
+                        </span>
+                        <span className="text-[0.72rem] uppercase tracking-[0.04em]"
+                          style={{ color: p.featured ? 'rgba(255,255,255,0.6)' : 'var(--text-muted)' }}>
+                          / meal
+                        </span>
+                      </div>
+                      <div className="text-[0.72rem]"
+                        style={{ color: p.featured ? 'rgba(255,255,255,0.75)' : 'var(--text-mid)', fontWeight: 500 }}>
+                        Total: ₹{Math.round(totalAmt).toLocaleString('en-IN')} <span className="text-[0.62rem] font-normal opacity-75">(incl. GST)</span>
+                      </div> */}
+                    </>
+                  )}
+                </div>
+
+                {/* Divider */}
+                <span className="block h-px mb-6" style={{ background: p.featured ? 'rgba(255,255,255,0.15)' : 'var(--border)' }} />
+                {/* Features */}
+                <ul className="list-none flex flex-col gap-3 mb-8 flex-1">
+                  {p.feats.map(f => (
+                    <li key={f} className="flex items-center gap-3 text-[0.88rem]"
+                      style={{ color: p.featured ? 'rgba(255,255,255,0.75)' : 'rgb(90,85,78)' }}>
+                      <span className="flex-shrink-0 text-[0.65rem]" style={{ color: 'var(--gold)' }}>✦</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <button
+                  onClick={() => setModal({ open: true, plan: p.key, label: p.label })}
+                  className="w-full py-[15px] text-[0.72rem] uppercase tracking-[0.2em] font-medium cursor-pointer border-none transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  style={{
+                    background: p.featured
+                      ? 'linear-gradient(135deg, var(--gold-light), var(--gold))'
+                      : 'var(--green)',
+                    color: p.featured ? 'var(--text)' : '#fff',
+                    fontFamily: 'var(--font-cinzel), serif',
+                    letterSpacing: '0.2em',
+                  }}
+                >
+                  {p.btn}
+                </button>
               </div>
             )
           })}
