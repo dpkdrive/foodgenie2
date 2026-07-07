@@ -118,11 +118,11 @@ function Calendar({ startDate, endDate, calView, setCalView, onDateClick }) {
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           height: 36, fontSize: '0.82rem', cursor: isPast ? 'default' : 'pointer',
-          opacity: isPast ? 0.3 : 1,
+          opacity: isPast ? 1 : 1,
           background: isStart || isEnd ? 'var(--green)' : inRange ? 'rgba(28,16,9,0.06)' : 'transparent',
           color: isStart || isEnd ? '#fff' : isToday ? 'var(--gold)' : 'var(--green)',
-          fontWeight: isToday ? 600 : 400,
-          border: isToday && !isStart && !isEnd ? '1px solid var(--gold)' : 'none',
+          fontWeight: isToday ? 700 : 400,
+          border: isToday && !isStart && !isEnd ? '2px solid var(--gold)' : 'none',
         }}
       >
         {d}
@@ -575,8 +575,9 @@ export default function BookingModal({ isOpen, onClose, planKey, planLabel, curr
                             }}>{opt.label}</span>
                             <span style={{
                               fontFamily: 'var(--font-cinzel), serif', fontSize: '0.72rem',
-                              color: selectedDayOpt === opt.value ? 'rgba(255,255,255,0.7)' : 'var(--gold)',
+                              color: selectedDayOpt === opt.value ? 'rgba(255,255,255,0.7)' : 'var(--gold) ',
                               marginTop: 4,
+                              fontWeight: '700',
                             }}>{fmt(opt.price)}</span>
                           </button>
                         ))}
